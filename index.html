@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoSphere</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">EcoSphere 🌿</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content" id="heroContent">
+        <h1>Redefining Sustainable Living</h1>
+        <p>
+            Premium eco-friendly products crafted to reduce waste,
+            conserve resources and inspire responsible living.
+        </p>
+        <a href="#about" class="btn">Explore Our Mission</a>
+    </div>
+</section>
+
+<section id="about" class="section reveal">
+    <h2>Our Vision</h2>
+    <p>
+        At EcoSphere, we believe sustainability is not a trend —
+        it’s a responsibility. Every product is designed with
+        innovation, durability, and environmental balance in mind.
+    </p>
+</section>
+
+<section id="products" class="section alt reveal">
+    <h2>Featured Products</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Bamboo Bottle</h3>
+            <p>Reusable insulated bottle with biodegradable bamboo shell.</p>
+        </div>
+        <div class="card">
+            <h3>Organic Tote</h3>
+            <p>100% organic cotton bag designed for daily sustainable use.</p>
+        </div>
+        <div class="card">
+            <h3>Eco Toothbrush</h3>
+            <p>Biodegradable handle for zero-waste oral care.</p>
+        </div>
+    </div>
+</section>
+
+<section id="impact" class="section reveal">
+    <h2>Environmental Impact</h2>
+    <div class="impact-grid">
+        <div class="impact-box">
+            <h3>15,000+</h3>
+            <p>Plastic Bottles Reduced</p>
+        </div>
+        <div class="impact-box">
+            <h3>8,200+</h3>
+            <p>Trees Planted</p>
+        </div>
+        <div class="impact-box">
+            <h3>25,000+</h3>
+            <p>Happy Customers</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section alt reveal">
+    <h2>Join the Movement</h2>
+    <div class="subscribe">
+        <input type="email" placeholder="Enter your email">
+        <button class="btn">Subscribe</button>
+    </div>
+</section>
+
+<footer>
+    © 2026 EcoSphere. Sustainable by Design.
+</footer>
+
+<script>
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+            .scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+    reveals.forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+});
+
+// HERO animation reset logic
+const heroBg = document.getElementById("heroBg");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY === 0) {
+        heroBg.classList.remove("zoomed");
+        void heroBg.offsetWidth;
+        heroBg.classList.add("zoomed");
+    } else {
+        heroBg.classList.remove("zoomed");
+    }
+});
+
+window.onload = () => {
+    heroBg.classList.add("zoomed");
+};
+
+</script>
+
+</body>
+</html>
